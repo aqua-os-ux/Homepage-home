@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Home — Your Homepage, Your Way</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+        
+        :root {
+            --md-primary: #00b4d8;
+            --md-surface: #121212;
+            --md-surface-variant: #1e1e1e;
+            --md-on-surface: #e0e0e0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Roboto', 'Product Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--md-surface);
+            color: var(--md-on-surface);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+        
+        /* Material 3 Navigation Bar */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            z-index: 100;
+        }
+        
+        .logo {
+            font-family: 'Roboto', 'Product Sans', sans-serif;
+            font-size: 22px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--md-primary);
+            border-radius: 50%;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 32px;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 680px;
+        }
+        
+        .hero h1 {
+            font-family: 'Roboto', 'Product Sans', sans-serif;
+            font-size: 52px;
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: #a0a0a0;
+            margin-bottom: 48px;
+            max-width: 520px;
+        }
+        
+        .cta-button {
+            background: var(--md-primary);
+            color: #000;
+            font-family: 'Roboto', 'Product Sans', sans-serif;
+            font-weight: 500;
+            font-size: 1.05rem;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 6px rgba(0, 180, 216, 0.3);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .cta-button:hover {
+            box-shadow: 0 4px 12px rgba(0, 180, 216, 0.4);
+            transform: scale(1.03);
+        }
+        
+        .section {
+            padding: 80px 32px;
+        }
+        
+        .versions {
+            background: #1a1a1a;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h2 {
+            font-family: 'Roboto', 'Product Sans', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 64px;
+            color: white;
+        }
+        
+        .version-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 32px;
+        }
+        
+        .version-card {
+            background: var(--md-surface-variant);
+            border-radius: 28px;
+            padding: 48px 40px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s;
+        }
+        
+        .version-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 180, 216, 0.25);
+        }
+        
+        .version-badge {
+            font-family: 'Roboto', 'Product Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 6px 20px;
+            border-radius: 100px;
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+        
+        .netscape-badge {
+            background: #00e5d8;
+            color: #000;
+        }
+        
+        .blue-badge {
+            background: #424242;
+            color: white;
+        }
+        
+        .version-card h3 {
+            font-family: 'Roboto', 'Product Sans', sans-serif;
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+        
+        .version-card p {
+            color: #c0c0c0;
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+        }
+        
+        .try-btn {
+            font-family: 'Roboto', 'Product Sans', sans-serif;
+            font-weight: 500;
+            font-size: 1.05rem;
+            padding: 12px 32px;
+            border: 2px solid var(--md-primary);
+            color: var(--md-primary);
+            background: transparent;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .try-btn:hover {
+            background: rgba(0, 180, 216, 0.1);
+        }
+        
+        .coming-soon {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 80px 24px 40px;
+            color: #888;
+            font-size: 0.95rem;
+        }
+        
+        .highlight {
+            color: #00e5ff;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="#" class="logo">
+            TV Home
+        </a>
+        <div style="margin-left: auto; display: flex; gap: 24px; font-weight: 500;">
+            <a href="#versions" id="versions-link" style="color: #e0e0e0; text-decoration: none;">Versions</a>
+            <a href="https://aqua-os-ux.github.io/Browser/" target="_blank" style="color: #e0e0e0; text-decoration: none;">Try Netscape</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p style="font-size: 1.1rem; color: #00b4d8; font-weight: 500; margin-bottom: 8px;">Simple • Clean • Yours</p>
+            <h1>Your homepage.<br>Finally <span class="highlight">yours</span>.</h1>
+            <p>TV Home is a simple, beautiful start page. Search Google instantly, open your favorite apps, movies, shows, or anything else with one tap — completely free, with zero advertisements.</p>
+            
+            <a href="#versions" class="cta-button">Choose Your Version</a>
+        </div>
+    </section>
+
+    <section class="section versions" id="versions">
+        <div class="container">
+            <h2>Two ways to experience TV Home</h2>
+            
+            <div class="version-grid">
+                <!-- Netscape -->
+                <div class="version-card">
+                    <div class="version-badge netscape-badge">RECOMMENDED</div>
+                    <h3>Netscape</h3>
+                    <p>Feature-rich yet simple. Regular updates, helpful widgets, easy navigation, and quick access to school services — all while staying completely ad-free.</p>
+                    <ul style="margin: 24px 0 40px; padding-left: 20px; line-height: 2; color: #c0c0c0;">
+                        <li>Custom widgets</li>
+                        <li>Intuitive app grid</li>
+                        <li>School &amp; productivity shortcuts</li>
+                        <li>Frequent updates</li>
+                    </ul>
+                    <a href="https://aqua-os-ux.github.io/Browser/" target="_blank" class="try-btn">Try Netscape Now</a>
+                </div>
+                
+                <!-- Project Blue -->
+                <div class="version-card">
+                    <div class="version-badge blue-badge">COMING SOON</div>
+                    <h3>Project Blue</h3>
+                    <p>Ultra-minimal design. No widgets, clean list view for apps, time displayed top-left, and pure simplicity with the search bar always ready.</p>
+                    <ul style="margin: 24px 0 40px; padding-left: 20px; line-height: 2; color: #c0c0c0;">
+                        <li>Distraction-free list view</li>
+                        <li>Time in top left</li>
+                        <li>Maximum simplicity</li>
+                        <li>Same no-ads promise</li>
+                    </ul>
+                    <button onclick="alert('Project Blue is still in development.\n\nNetscape is ready for you right now!')" class="try-btn coming-soon">Not Available Yet</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer">
+        <p>Made with care for people who just want their homepage back.</p>
+        <p style="margin-top: 12px;">TV Home © 2026 — No ads. No tracking. No nonsense.</p>
+    </div>
+
+    <script>
+        // Enhanced smooth scrolling with offset for fixed navbar
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href').substring(1);
+                if (!targetId) return;
+                
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    
+                    const navHeight = 64; // height of fixed navbar
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.scrollY - navHeight - 20; // extra 20px padding
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
