@@ -145,7 +145,7 @@
         
         .version-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
             gap: 32px;
         }
         
@@ -172,7 +172,7 @@
             margin-bottom: 24px;
         }
         
-        .netscape-badge {
+        .recommended-badge {
             background: #00e5d8;
             color: #000;
         }
@@ -228,7 +228,6 @@
             color: #00e5ff;
         }
 
-        /* How To Section */
         .guide-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -261,7 +260,6 @@
         <div style="margin-left: auto; display: flex; gap: 24px; font-weight: 500;">
             <a href="#versions" style="color: #e0e0e0; text-decoration: none;">Versions</a>
             <a href="#howto" style="color: #e0e0e0; text-decoration: none;">Set as Homepage</a>
-            <a href="https://aqua-os-ux.github.io/Browser/" target="_blank" style="color: #e0e0e0; text-decoration: none;">Netscape</a>
         </div>
     </nav>
 
@@ -277,12 +275,26 @@
 
     <section class="section versions" id="versions">
         <div class="container">
-            <h2>Two ways to experience TV Home</h2>
+            <h2>Choose your TV Home experience</h2>
             
             <div class="version-grid">
+                <!-- Cinnamon - New & Recommended for Desktop -->
+                <div class="version-card">
+                    <div class="version-badge recommended-badge">RECOMMENDED FOR DESKTOP</div>
+                    <h3>Cinnamon</h3>
+                    <p>A beautifully organized version of Netscape inspired by Project Blue. Features a dock-style taskbar and start menu for a premium desktop feel while keeping everything clean and ad-free.</p>
+                    <ul style="margin: 24px 0 40px; padding-left: 20px; line-height: 2; color: #c0c0c0;">
+                        <li>Dock-style taskbar + Start menu</li>
+                        <li>Organized layout like Project Blue</li>
+                        <li>Great for larger desktop screens</li>
+                        <li>Widgets &amp; productivity tools</li>
+                    </ul>
+                    <a href="https://aqua-os-ux.github.io/Browser/" target="_blank" class="try-btn">Try Cinnamon Now</a>
+                </div>
+                
                 <!-- Netscape -->
                 <div class="version-card">
-                    <div class="version-badge netscape-badge">RECOMMENDED</div>
+                    <div class="version-badge" style="background:#64748b; color:white;">CLASSIC</div>
                     <h3>Netscape</h3>
                     <p>Feature-rich yet simple. Regular updates, helpful widgets, easy navigation, and quick access to school services — all while staying completely ad-free.</p>
                     <ul style="margin: 24px 0 40px; padding-left: 20px; line-height: 2; color: #c0c0c0;">
@@ -291,12 +303,12 @@
                         <li>School &amp; productivity shortcuts</li>
                         <li>Frequent updates</li>
                     </ul>
-                    <a href="https://aqua-os-ux.github.io/Browser/" target="_blank" class="try-btn">Try Netscape Now</a>
+                    <a href="https://aqua-os-ux.github.io/Browser/" target="_blank" class="try-btn">Try Netscape</a>
                 </div>
                 
                 <!-- Project Blue -->
                 <div class="version-card">
-                    <div class="version-badge blue-badge">NOW AVAILABLE</div>
+                    <div class="version-badge blue-badge">MINIMAL</div>
                     <h3>Project Blue</h3>
                     <p>Ultra-minimal design. No widgets, clean list view for apps, time displayed top-left, and pure simplicity with the search bar always ready.</p>
                     <ul style="margin: 24px 0 40px; padding-left: 20px; line-height: 2; color: #c0c0c0;">
@@ -305,48 +317,43 @@
                         <li>Maximum simplicity</li>
                         <li>Same no-ads promise</li>
                     </ul>
-                    <a href="https://aqua-os-ux.github.io/Prodject-blue/" target="_blank" class="try-btn">Try Project Blue Now</a>
+                    <a href="https://aqua-os-ux.github.io/Prodject-blue/" target="_blank" class="try-btn">Try Project Blue</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- New How To Section -->
+    <!-- How To Section -->
     <section class="section how-to" id="howto">
         <div class="container">
             <h2>How to make it your Homepage</h2>
             
             <div class="guide-grid">
-                <!-- iOS -->
                 <div class="guide-card">
                     <h3>iOS / Safari</h3>
                     <ul>
                         <li>Go to the App Store and download the <strong>Homepage</strong> extension</li>
-                        <li>Go to Settings → Safari → Extensions and make sure it is enabled</li>
-                        <li>Open the extension and enter the URL of your chosen version (Netscape or Project Blue)</li>
+                        <li>Go to Settings → Safari → Extensions and enable it</li>
+                        <li>Open the extension and enter the URL of your chosen version</li>
                     </ul>
                 </div>
                 
-                <!-- Edge -->
                 <div class="guide-card">
                     <h3>Microsoft Edge</h3>
                     <ul>
-                        <li>Go to the Edge (or Chrome) Web Store</li>
-                        <li>Install the <strong>Custom New Tab</strong> extension by Maljur</li>
-                        <li>Copy the URL of your chosen version</li>
-                        <li>Open a new tab → paste the URL in the extension field → Save</li>
+                        <li>Install the <strong>Custom New Tab</strong> extension by Maljur from the Edge Web Store</li>
+                        <li>Copy your chosen TV Home URL</li>
+                        <li>Paste it in the extension settings and save</li>
                         <li>Close and reopen Edge</li>
                     </ul>
                 </div>
                 
-                <!-- Firefox -->
                 <div class="guide-card">
                     <h3>Firefox</h3>
                     <ul>
                         <li>Press <strong>Ctrl + Shift + A</strong> to open Add-ons</li>
-                        <li>Search for and install the <strong>New Tab Homepage</strong> extension</li>
-                        <li>Go to Firefox Settings → Home → New Windows and Tabs</li>
-                        <li>Set "Homepage and new windows" and "New tabs" to Custom URLs</li>
+                        <li>Install the <strong>New Tab Homepage</strong> extension</li>
+                        <li>Go to Settings → Home and set custom URLs</li>
                         <li>Paste your chosen TV Home URL</li>
                         <li>Close and reopen Firefox</li>
                     </ul>
@@ -354,7 +361,7 @@
             </div>
             
             <p style="text-align: center; margin-top: 60px; color: #888; font-size: 1.05rem;">
-                Note: These instructions work on official browsers for laptop and iOS. Some browsers on Android may vary. More platform guides coming soon.
+                Note: These instructions work best on official browsers for laptop and iOS. Android support varies. More guides coming soon.
             </p>
         </div>
     </section>
@@ -365,7 +372,7 @@
     </div>
 
     <script>
-        // Enhanced smooth scrolling with offset
+        // Smooth scrolling with navbar offset
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const targetId = this.getAttribute('href').substring(1);
