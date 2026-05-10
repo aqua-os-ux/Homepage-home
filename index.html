@@ -33,7 +33,6 @@
             font-size: 1rem;
         }
         
-        /* Material 3 Navigation Bar */
         .nav {
             position: fixed;
             top: 0;
@@ -126,6 +125,10 @@
             background: #1a1a1a;
         }
         
+        .how-to {
+            background: #121212;
+        }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -175,8 +178,8 @@
         }
         
         .blue-badge {
-            background: #424242;
-            color: white;
+            background: #00b4d8;
+            color: #000;
         }
         
         .version-card h3 {
@@ -204,15 +207,14 @@
             cursor: pointer;
             width: 100%;
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .try-btn:hover {
             background: rgba(0, 180, 216, 0.1);
-        }
-        
-        .coming-soon {
-            opacity: 0.7;
-            cursor: not-allowed;
         }
         
         .footer {
@@ -225,6 +227,30 @@
         .highlight {
             color: #00e5ff;
         }
+
+        /* How To Section */
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 32px;
+        }
+        
+        .guide-card {
+            background: #1e1e1e;
+            border-radius: 28px;
+            padding: 40px;
+        }
+        
+        .guide-card h3 {
+            color: var(--md-primary);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+        
+        .guide-card ul {
+            line-height: 2;
+            padding-left: 20px;
+        }
     </style>
 </head>
 <body>
@@ -233,8 +259,9 @@
             TV Home
         </a>
         <div style="margin-left: auto; display: flex; gap: 24px; font-weight: 500;">
-            <a href="#versions" id="versions-link" style="color: #e0e0e0; text-decoration: none;">Versions</a>
-            <a href="https://aqua-os-ux.github.io/Browser/" target="_blank" style="color: #e0e0e0; text-decoration: none;">Try Netscape</a>
+            <a href="#versions" style="color: #e0e0e0; text-decoration: none;">Versions</a>
+            <a href="#howto" style="color: #e0e0e0; text-decoration: none;">Set as Homepage</a>
+            <a href="https://aqua-os-ux.github.io/Browser/" target="_blank" style="color: #e0e0e0; text-decoration: none;">Netscape</a>
         </div>
     </nav>
 
@@ -269,7 +296,7 @@
                 
                 <!-- Project Blue -->
                 <div class="version-card">
-                    <div class="version-badge blue-badge">COMING SOON</div>
+                    <div class="version-badge blue-badge">NOW AVAILABLE</div>
                     <h3>Project Blue</h3>
                     <p>Ultra-minimal design. No widgets, clean list view for apps, time displayed top-left, and pure simplicity with the search bar always ready.</p>
                     <ul style="margin: 24px 0 40px; padding-left: 20px; line-height: 2; color: #c0c0c0;">
@@ -278,9 +305,57 @@
                         <li>Maximum simplicity</li>
                         <li>Same no-ads promise</li>
                     </ul>
-                    <button onclick="alert('Project Blue is still in development.\n\nNetscape is ready for you right now!')" class="try-btn coming-soon">Not Available Yet</button>
+                    <a href="https://aqua-os-ux.github.io/Prodject-blue/" target="_blank" class="try-btn">Try Project Blue Now</a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- New How To Section -->
+    <section class="section how-to" id="howto">
+        <div class="container">
+            <h2>How to make it your Homepage</h2>
+            
+            <div class="guide-grid">
+                <!-- iOS -->
+                <div class="guide-card">
+                    <h3>iOS / Safari</h3>
+                    <ul>
+                        <li>Go to the App Store and download the <strong>Homepage</strong> extension</li>
+                        <li>Go to Settings → Safari → Extensions and make sure it is enabled</li>
+                        <li>Open the extension and enter the URL of your chosen version (Netscape or Project Blue)</li>
+                    </ul>
+                </div>
+                
+                <!-- Edge -->
+                <div class="guide-card">
+                    <h3>Microsoft Edge</h3>
+                    <ul>
+                        <li>Go to the Edge (or Chrome) Web Store</li>
+                        <li>Install the <strong>Custom New Tab</strong> extension by Maljur</li>
+                        <li>Copy the URL of your chosen version</li>
+                        <li>Open a new tab → paste the URL in the extension field → Save</li>
+                        <li>Close and reopen Edge</li>
+                    </ul>
+                </div>
+                
+                <!-- Firefox -->
+                <div class="guide-card">
+                    <h3>Firefox</h3>
+                    <ul>
+                        <li>Press <strong>Ctrl + Shift + A</strong> to open Add-ons</li>
+                        <li>Search for and install the <strong>New Tab Homepage</strong> extension</li>
+                        <li>Go to Firefox Settings → Home → New Windows and Tabs</li>
+                        <li>Set "Homepage and new windows" and "New tabs" to Custom URLs</li>
+                        <li>Paste your chosen TV Home URL</li>
+                        <li>Close and reopen Firefox</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 60px; color: #888; font-size: 1.05rem;">
+                Note: These instructions work on official browsers for laptop and iOS. Some browsers on Android may vary. More platform guides coming soon.
+            </p>
         </div>
     </section>
 
@@ -290,7 +365,7 @@
     </div>
 
     <script>
-        // Enhanced smooth scrolling with offset for fixed navbar
+        // Enhanced smooth scrolling with offset
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const targetId = this.getAttribute('href').substring(1);
@@ -300,9 +375,9 @@
                 if (targetElement) {
                     e.preventDefault();
                     
-                    const navHeight = 64; // height of fixed navbar
+                    const navHeight = 64;
                     const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.scrollY - navHeight - 20; // extra 20px padding
+                    const offsetPosition = elementPosition + window.scrollY - navHeight - 20;
                     
                     window.scrollTo({
                         top: offsetPosition,
