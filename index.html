@@ -133,6 +133,10 @@
             background: #1a1a1a;
         }
         
+        .faq {
+            background: #121212;
+        }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -149,7 +153,7 @@
         
         .version-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 32px;
         }
         
@@ -183,6 +187,11 @@
         
         .blue-badge {
             background: #00b4d8;
+            color: #000;
+        }
+        
+        .education-badge {
+            background: #4ade80;
             color: #000;
         }
         
@@ -243,9 +252,23 @@
             margin-top: 48px;
         }
         
+        .faq-item {
+            background: #1e1e1e;
+            border-radius: 28px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+        
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #00e5ff;
+            margin-bottom: 12px;
+        }
+        
         .footer {
             text-align: center;
-            padding: 80px 24px 40px;
+            padding: 60px 24px 40px;
             color: #888;
             font-size: 0.95rem;
         }
@@ -316,6 +339,20 @@
                         <li>Widgets &amp; productivity tools</li>
                     </ul>
                     <a href="https://aqua-os-ux.github.io/Cinnamon/" target="_blank" class="try-btn">Try Cinnamon Now</a>
+                </div>
+                
+                <!-- Netscape Education -->
+                <div class="version-card">
+                    <div class="version-badge education-badge">NEW — EDUCATION</div>
+                    <h3>Netscape Education</h3>
+                    <p>This version is tailored for educational and work environments. It has a cleaner, more focused layout like Project Blue, with better availability for tools like Google Classroom, Microsoft 365, and other productivity apps.</p>
+                    <ul style="margin: 24px 0 40px; padding-left: 20px; line-height: 2; color: #c0c0c0;">
+                        <li>Optimized for school &amp; work</li>
+                        <li>Quick access to Google Classroom &amp; Docs</li>
+                        <li>Minimal distractions</li>
+                        <li>Some apps may require login or be blocked by your admin</li>
+                    </ul>
+                    <a href="https://aqua-os-ux.github.io/Netscape-education/" target="_blank" class="try-btn">Try Netscape Education</a>
                 </div>
                 
                 <!-- Netscape -->
@@ -412,13 +449,35 @@
                 </p>
             </div>
 
-            <!-- Announcement Box -->
             <div class="announcement">
-                <h3 style="color: #00b4d8; margin-bottom: 16px;">Want early betas?</h3>
-                <p style="color: #c0c0c0; font-size: 1.1rem; max-width: 700px; margin: 0 auto;">
-                    Pretty soon <strong>Project Jupiter</strong> will come out — a three-in-one operating system space where Cinnamon, Project Blue, and Netscape will receive beta updates. 
-                    These may have some imperfections. More details on certain versions coming soon.
+                <h3 style="color: #00b4d8; margin-bottom: 16px;">NEW</h3>
+                <p style="color: #c0c0c0; font-size: 1.1rem; max-width: 720px; margin: 0 auto;">
+                    We’re working on a homepage based on Netscape designed for work or school. It will include quick access to Google Docs, Microsoft Word, and more — while staying clean with no widgets, no extra AI sites, and the same no-ad experience.
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq" id="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item">
+                    <div class="faq-question">Why can’t I access some educational or work quick sites?</div>
+                    <p style="color: #c0c0c0;">
+                        There’s nothing Netscape (or any TV Home version) can do to fix this. It is a school or work network / technician issue. Please contact your administrator. 
+                        Common reasons include the site not being approved for educational use or general blocking by your admin.
+                    </p>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What is this whole thing for?</div>
+                    <p style="color: #c0c0c0;">
+                        TV Home is for people who just want something simple, familiar, and actually theirs — without advertisements, subscriptions, tracking, or other nonsense.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
