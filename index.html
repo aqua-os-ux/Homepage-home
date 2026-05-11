@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TV Home — Your Homepage, Your Way</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
         
@@ -125,15 +126,7 @@
             background: #1a1a1a;
         }
         
-        .how-to {
-            background: #121212;
-        }
-        
-        .updates {
-            background: #1a1a1a;
-        }
-        
-        .faq {
+        .how-to, .updates, .faq {
             background: #121212;
         }
         
@@ -180,20 +173,10 @@
             margin-bottom: 24px;
         }
         
-        .recommended-badge {
-            background: #00e5d8;
-            color: #000;
-        }
-        
-        .blue-badge {
-            background: #00b4d8;
-            color: #000;
-        }
-        
-        .education-badge {
-            background: #4ade80;
-            color: #000;
-        }
+        .recommended-badge { background: #00e5d8; color: #000; }
+        .blue-badge { background: #00b4d8; color: #000; }
+        .education-badge { background: #4ade80; color: #000; }
+        .coming-soon-badge { background: #f59e0b; color: #000; }
         
         .version-card h3 {
             font-family: 'Roboto', 'Product Sans', sans-serif;
@@ -230,17 +213,23 @@
             background: rgba(0, 180, 216, 0.1);
         }
         
+        .coming-soon {
+            opacity: 0.85;
+            cursor: not-allowed;
+        }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 28px;
+            vertical-align: middle;
+        }
+        
         .update-log {
             background: #1e1e1e;
             border-radius: 28px;
             padding: 48px;
             max-width: 800px;
             margin: 0 auto;
-        }
-        
-        .update-log h3 {
-            color: #00e5d8;
-            margin-bottom: 16px;
         }
         
         .announcement {
@@ -343,7 +332,7 @@
                 
                 <!-- Netscape Education -->
                 <div class="version-card">
-                    <div class="version-badge education-badge">NEW — EDUCATION</div>
+                    <div class="version-badge education-badge">EDUCATION</div>
                     <h3>Netscape Education</h3>
                     <p>This version is tailored for educational and work environments. It has a cleaner, more focused layout like Project Blue, with better availability for tools like Google Classroom, Microsoft 365, and other productivity apps.</p>
                     <ul style="margin: 24px 0 40px; padding-left: 20px; line-height: 2; color: #c0c0c0;">
@@ -382,6 +371,22 @@
                     </ul>
                     <a href="https://aqua-os-ux.github.io/Prodject-blue/" target="_blank" class="try-btn">Try Project Blue</a>
                 </div>
+                
+                <!-- Game Hub - Coming Soon -->
+                <div class="version-card">
+                    <div class="version-badge coming-soon-badge">
+                        <span class="material-symbols-outlined">sports_esports</span> COMING SOON
+                    </div>
+                    <h3>Game Hub</h3>
+                    <p>Coming out this week — the ultimate homepage for gamers! Built on Netscape and Cinnamon foundations with its own main OS feel. Packed with browser games and more 🔥😎</p>
+                    <ul style="margin: 24px 0 40px; padding-left: 20px; line-height: 2; color: #c0c0c0;">
+                        <li>Browser games collection</li>
+                        <li>Gaming-first design</li>
+                        <li>Based on Netscape + Cinnamon</li>
+                        <li>Pure fun experience</li>
+                    </ul>
+                    <button class="try-btn coming-soon">Coming This Week</button>
+                </div>
             </div>
         </div>
     </section>
@@ -390,7 +395,7 @@
     <section class="section how-to" id="howto">
         <div class="container">
             <h2>How to make it your Homepage</h2>
-            
+            <!-- (kept the same as before) -->
             <div class="guide-grid">
                 <div class="guide-card">
                     <h3>iOS / Safari</h3>
@@ -429,11 +434,10 @@
         </div>
     </section>
 
-    <!-- Update Log Section -->
+    <!-- Update Log + Announcement + FAQ (unchanged) -->
     <section class="section updates" id="updates">
         <div class="container">
             <h2>Update Log</h2>
-            
             <div class="update-log">
                 <h3>Netscape — Latest Update</h3>
                 <p style="color: #c0c0c0; font-size: 1.15rem; margin-bottom: 24px;">
@@ -458,20 +462,16 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
     <section class="section faq" id="faq">
         <div class="container">
             <h2>Frequently Asked Questions</h2>
-            
             <div style="max-width: 800px; margin: 0 auto;">
                 <div class="faq-item">
                     <div class="faq-question">Why can’t I access some educational or work quick sites?</div>
                     <p style="color: #c0c0c0;">
-                        There’s nothing Netscape (or any TV Home version) can do to fix this. It is a school or work network / technician issue. Please contact your administrator. 
-                        Common reasons include the site not being approved for educational use or general blocking by your admin.
+                        There’s nothing Netscape (or any TV Home version) can do to fix this. It is a school or work network / technician issue. Please contact your administrator.
                     </p>
                 </div>
-                
                 <div class="faq-item">
                     <div class="faq-question">What is this whole thing for?</div>
                     <p style="color: #c0c0c0;">
@@ -488,7 +488,6 @@
     </div>
 
     <script>
-        // Smooth scrolling with navbar offset
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const targetId = this.getAttribute('href').substring(1);
@@ -497,7 +496,6 @@
                 const targetElement = document.getElementById(targetId);
                 if (targetElement) {
                     e.preventDefault();
-                    
                     const navHeight = 64;
                     const elementPosition = targetElement.getBoundingClientRect().top;
                     const offsetPosition = elementPosition + window.scrollY - navHeight - 20;
