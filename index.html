@@ -126,7 +126,7 @@
         
         .version-card p {
             flex-grow: 1;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
         }
         
         .version-badge {
@@ -155,11 +155,18 @@
             cursor: pointer;
             transition: all 0.2s;
             margin-top: auto;
+            margin-bottom: 12px;
             font-size: 1.02rem;
         }
         
         .try-btn:hover { background: rgba(0, 180, 216, 0.1); }
         .coming-soon { opacity: 0.8; cursor: not-allowed; }
+        
+        .fallback-link {
+            font-size: 0.95rem;
+            color: #888;
+            text-align: center;
+        }
         
         .footer {
             text-align: center;
@@ -251,7 +258,15 @@
                     <div class="version-badge beta-badge">BETA • JUPITER</div>
                     <h3>Netscape Jupiter</h3>
                     <p>The first official beta with experimental features.</p>
+                    
                     <button onclick="showBetaModal()" class="try-btn">Try Netscape Jupiter Beta</button>
+                    
+                    <p class="fallback-link" style="margin-top: 16px;">
+                        If the button doesn't work, go to:<br>
+                        <a href="https://aqua-os-ux.github.io/Netscape-Jupiter-beta/" target="_blank" style="color:#00b4d8; text-decoration:underline;">
+                            https://aqua-os-ux.github.io/Netscape-Jupiter-beta/
+                        </a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -304,7 +319,6 @@
             });
         });
 
-        // Beta Modal Functions
         function showBetaModal() {
             document.getElementById('betaModal').style.display = 'flex';
             document.getElementById('agreeCheck').checked = false;
