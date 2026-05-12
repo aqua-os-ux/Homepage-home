@@ -14,14 +14,13 @@
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         html { scroll-behavior: smooth; }
         
         body {
             font-family: 'Roboto', system-ui, sans-serif;
             background: #121212;
             color: #e0e0e0;
-            line-height: 1.6;
+            line-height: 1.65;
         }
         
         .nav {
@@ -30,7 +29,7 @@
             height: 64px;
             display: flex;
             align-items: center;
-            padding: 0 24px;
+            padding: 0 5%;
             background: rgba(18, 18, 18, 0.95);
             backdrop-filter: blur(12px);
             z-index: 100;
@@ -59,24 +58,24 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 0 32px;
+            padding: 0 5%;
         }
         
         .hero h1 {
-            font-size: 52px;
+            font-size: clamp(2.8rem, 8vw, 52px);
             line-height: 1.1;
             margin-bottom: 24px;
         }
         
         .highlight { color: #00e5ff; }
         
-        .section { padding: 80px 32px; }
+        .section { padding: 80px 5%; }
         
         .versions, .how-to, .updates, .faq { background: #121212; }
         
-        /* Liquid Glass Beta Section */
+        /* Liquid Glass Beta */
         .beta-section {
-            background: linear-gradient(135deg, rgba(20, 20, 35, 0.9), rgba(10, 15, 40, 0.95));
+            background: linear-gradient(135deg, rgba(20, 20, 35, 0.92), rgba(10, 15, 40, 0.95));
             backdrop-filter: blur(20px);
             border-top: 1px solid rgba(255,255,255,0.12);
             border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -100,37 +99,44 @@
         .container { max-width: 1200px; margin: 0 auto; }
         
         h2 {
-            font-size: 2.5rem;
+            font-size: clamp(2.2rem, 6vw, 2.5rem);
             text-align: center;
-            margin-bottom: 64px;
+            margin-bottom: 60px;
             color: white;
         }
         
         .version-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 32px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
         }
         
         .version-card {
             background: #1e1e1e;
-            border-radius: 28px;
-            padding: 48px 40px;
+            border-radius: 24px;
+            padding: 40px 32px;
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
         
         .version-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
             box-shadow: 0 12px 30px rgba(0, 180, 216, 0.25);
         }
         
+        .version-card p {
+            flex-grow: 1;
+            margin-bottom: 32px;
+        }
+        
         .version-badge {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 500;
-            padding: 6px 20px;
+            padding: 5px 18px;
             border-radius: 100px;
             display: inline-block;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
         
         .recommended-badge { background: #00e5d8; color: #000; }
@@ -141,7 +147,7 @@
         
         .try-btn {
             font-weight: 500;
-            padding: 12px 32px;
+            padding: 13px 28px;
             border: 2px solid var(--md-primary);
             color: var(--md-primary);
             background: transparent;
@@ -149,48 +155,25 @@
             width: 100%;
             cursor: pointer;
             transition: all 0.2s;
+            margin-top: auto;
+            font-size: 1.02rem;
         }
         
         .try-btn:hover { background: rgba(0, 180, 216, 0.1); }
-        
         .coming-soon { opacity: 0.8; cursor: not-allowed; }
-        
-        .material-symbols-outlined {
-            font-size: 28px;
-            vertical-align: middle;
-        }
-        
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(12px);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .modal-content {
-            background: rgba(30,30,40,0.98);
-            border-radius: 28px;
-            padding: 40px;
-            max-width: 520px;
-            width: 90%;
-        }
         
         .footer {
             text-align: center;
             padding: 80px 24px 40px;
             color: #888;
+            font-size: 0.95rem;
         }
     </style>
 </head>
 <body>
     <nav class="nav">
         <a href="#" class="logo">TV Home</a>
-        <div style="margin-left: auto; display: flex; gap: 24px;">
+        <div style="margin-left: auto; display: flex; gap: 20px;">
             <a href="#versions" style="color:#e0e0e0; text-decoration:none;">Versions</a>
             <a href="#howto" style="color:#e0e0e0; text-decoration:none;">Set as Homepage</a>
             <a href="#beta" style="color:#e0e0e0; text-decoration:none;">Beta Releases</a>
@@ -198,11 +181,11 @@
     </nav>
 
     <section class="hero">
-        <div class="hero-content" style="max-width:680px;">
-            <p style="color:#00b4d8; font-weight:500;">Simple • Clean • Yours</p>
+        <div style="max-width:680px;">
+            <p style="color:#00b4d8; font-weight:500; margin-bottom:8px;">Simple • Clean • Yours</p>
             <h1>Your homepage.<br>Finally <span class="highlight">yours</span>.</h1>
             <p>TV Home is a simple, beautiful start page. Search Google instantly, open your favorite apps, movies, shows, or anything else — completely free with zero advertisements.</p>
-            <a href="#versions" class="cta-button" style="background:var(--md-primary); color:#000; padding:14px 32px; border-radius:50px; text-decoration:none; display:inline-block;">Choose Your Version</a>
+            <a href="#versions" style="background:var(--md-primary); color:#000; padding:14px 32px; border-radius:50px; text-decoration:none; display:inline-block; margin-top:28px; font-weight:500;">Choose Your Version</a>
         </div>
     </section>
 
@@ -211,7 +194,6 @@
         <div class="container">
             <h2>Choose your TV Home experience</h2>
             <div class="version-grid">
-                <!-- Cinnamon -->
                 <div class="version-card">
                     <div class="version-badge recommended-badge">RECOMMENDED FOR DESKTOP</div>
                     <h3>Cinnamon</h3>
@@ -219,53 +201,49 @@
                     <a href="https://aqua-os-ux.github.io/Cinnamon/" target="_blank" class="try-btn">Try Cinnamon Now</a>
                 </div>
                 
-                <!-- Netscape Education -->
                 <div class="version-card">
                     <div class="version-badge education-badge">EDUCATION</div>
                     <h3>Netscape Education</h3>
-                    <p>Tailored for school and work with quick access to Google Classroom, Docs, and more.</p>
+                    <p>Tailored for school and work with quick access to Google Classroom &amp; Docs.</p>
                     <a href="https://aqua-os-ux.github.io/Netscape-education/" target="_blank" class="try-btn">Try Netscape Education</a>
                 </div>
                 
-                <!-- Netscape -->
                 <div class="version-card">
                     <div class="version-badge" style="background:#64748b; color:white;">CLASSIC</div>
                     <h3>Netscape</h3>
-                    <p>Feature-rich with widgets, frequent updates, and great for everyday use.</p>
+                    <p>Feature-rich with widgets and frequent updates.</p>
                     <a href="https://aqua-os-ux.github.io/Browser/" target="_blank" class="try-btn">Try Netscape</a>
                 </div>
                 
-                <!-- Project Blue -->
                 <div class="version-card">
                     <div class="version-badge blue-badge">MINIMAL</div>
                     <h3>Project Blue</h3>
-                    <p>Ultra-clean with list view and maximum simplicity.</p>
+                    <p>Ultra-clean list view with maximum simplicity.</p>
                     <a href="https://aqua-os-ux.github.io/Prodject-blue/" target="_blank" class="try-btn">Try Project Blue</a>
                 </div>
                 
-                <!-- Game Hub -->
                 <div class="version-card">
                     <div class="version-badge coming-soon-badge">
                         <span class="material-symbols-outlined">sports_esports</span> COMING SOON
                     </div>
                     <h3>Game Hub</h3>
-                    <p>Coming this week — the ultimate gaming homepage with browser games and more 😎</p>
+                    <p>Coming this week — the ultimate gaming homepage 😎</p>
                     <button class="try-btn coming-soon">Coming This Week</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Liquid Glass Beta Section -->
+    <!-- Beta Section -->
     <section class="section beta-section" id="beta">
         <div class="container">
             <h2>Our Beta Releases</h2>
             <div style="max-width:820px; margin:0 auto; text-align:center; margin-bottom:60px;">
-                <p style="font-size:1.2rem; color:#c0c0c0;">
-                    Lots of upcoming versions are in development right now. Below are the available home screen betas under the codename <strong>Project Jupiter</strong>.
+                <p style="font-size:1.15rem; color:#c0c0c0;">
+                    Lots of upcoming versions are in development. Below are the available betas under the codename <strong>Project Jupiter</strong>.
                 </p>
                 <p style="margin-top:16px; color:#888;">
-                    They are subject to change. You may not want to set them as your main homepage until further release info.
+                    They are subject to change. Use with caution as your daily homepage.
                 </p>
             </div>
 
@@ -273,15 +251,12 @@
                 <div class="version-card" style="text-align:center;">
                     <div class="version-badge beta-badge">BETA • JUPITER</div>
                     <h3>Netscape Jupiter</h3>
-                    <p>The first official beta under Project Jupiter with experimental features.</p>
+                    <p>The first official beta with experimental features.</p>
                     <button onclick="showBetaModal()" class="try-btn">Try Netscape Jupiter Beta</button>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- How To, Update Log, FAQ, Footer (same as previous) -->
-    <!-- (Omitted for brevity — they remain unchanged from the last full version) -->
 
     <div class="footer">
         <p>Made with care for people who just want their homepage back.</p>
@@ -289,8 +264,8 @@
     </div>
 
     <!-- Beta Modal -->
-    <div id="betaModal" class="modal">
-        <div class="modal-content">
+    <div id="betaModal" class="modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); backdrop-filter:blur(12px); z-index:2000; align-items:center; justify-content:center;">
+        <div style="background:rgba(30,30,40,0.98); border-radius:28px; padding:36px; max-width:500px; width:90%;">
             <h3 style="margin-bottom:24px; color:#a855f7;">Beta Terms of Service</h3>
             <p style="line-height:1.7; margin-bottom:32px; color:#ddd;">
                 The official beta release of this version is subject to change and may have missing apps. 
@@ -302,31 +277,34 @@
                 <span>I agree to the terms of service</span>
             </label>
             
-            <button id="proceedBtn" onclick="launchBeta()" style="display:none; width:100%; background:#a855f7; color:white; border:none; padding:16px; border-radius:50px; font-size:1.1rem;">
+            <button id="proceedBtn" onclick="launchBeta()" 
+                    style="display:none; width:100%; background:#a855f7; color:white; border:none; padding:16px; border-radius:50px; font-size:1.05rem;">
                 Continue to Netscape Jupiter Beta →
             </button>
             
-            <button onclick="closeModal()" style="margin-top:16px; width:100%; background:transparent; border:1px solid #666; color:#aaa; padding:14px; border-radius:50px;">
+            <button onclick="closeModal()" 
+                    style="margin-top:16px; width:100%; background:transparent; border:1px solid #666; color:#aaa; padding:14px; border-radius:50px;">
                 Cancel
             </button>
         </div>
     </div>
 
     <script>
-        // Smooth Scroll
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const target = document.getElementById(this.getAttribute('href').substring(1));
                 if (target) {
                     e.preventDefault();
-                    const offset = 84;
-                    const topPos = target.getBoundingClientRect().top + window.scrollY - offset;
-                    window.scrollTo({ top: topPos, behavior: 'smooth' });
+                    const offset = 80;
+                    window.scrollTo({
+                        top: target.getBoundingClientRect().top + window.scrollY - offset,
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
 
-        // Beta Modal
         function showBetaModal() {
             document.getElementById('betaModal').style.display = 'flex';
             document.getElementById('agreeCheck').checked = false;
@@ -334,8 +312,8 @@
         }
         
         function toggleBetaButton() {
-            const btn = document.getElementById('proceedBtn');
-            btn.style.display = document.getElementById('agreeCheck').checked ? 'block' : 'none';
+            const checked = document.getElementById('agreeCheck').checked;
+            document.getElementById('proceedBtn').style.display = checked ? 'block' : 'none';
         }
         
         function launchBeta() {
